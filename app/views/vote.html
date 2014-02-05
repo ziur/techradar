@@ -3,7 +3,7 @@
 <div class="jumbotron">
     <div class="row">
         <div class="col-sm-8">
-            <h3 class="text-muted">techradar</h3>
+            <h3 class="text-muted">TechRadar</h3>
             <div id="radar">
 
             </div>
@@ -13,7 +13,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title">Choose a vote</h3>
                 </div>
-                <div class="panel-body">
+                <div class="panel-body draggables">
                     <ul>
                         <li>Yes</li>
                         <li>Maybe</li>
@@ -24,5 +24,46 @@
         </div>
     </div>
 </div>
+<script>
+    $( document ).ready(function() {
+        // Handler for .ready() called.
+
+    $(".draggables li").draggable({
+        revert: true,
+        revertDuration: 200,
+        cursorAt: { left: -2, top: -2 },
+
+        // Register what we're dragging with the drop manager
+        start: function (e) {
+            // Getting the datum from the standard event target requires more work.
+            console.log('Start drop')
+            DragDropManager.dragged = d3.select(e.target).datum();
+        },
+        // Set cursors based on matches, prepare for a drop
+        drag: function (e) {
+            matches = DragDropManager.draggedMatchesTarget();
+            d3.select("body").style("cursor",function() {
+                return (matches) ? "copy" : "move";
+            });
+            // Eliminate the animation on revert for matches.
+            // We have to set the revert duration here instead of "stop"
+            // in order to have the change take effect.
+//            console.log('DRAG!!! drop')
+            $(e.target).draggable("option","revertDuration",(matches) ? 0 : 200)
+        },
+        // Handle the end state. For this example, disable correct drops
+        // then reset the standard cursor.
+        stop: function (e,ui) {
+            // Dropped on a non-matching target.
+            //if (!DragDropManager.draggedMatchesTarget()) return;
+            console.log('Stop drop:' + DragDropManager.dragged);
+            console.log('Stop drop:' + DragDropManager.droppable);
+            createBlip('45', DragDropManager.droppable.datum().radius);
+            $(e.target).draggable("disable");
+            $("body").css("cursor","");
+        }
+    });
+    });
+</script>
 
 

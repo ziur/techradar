@@ -14,13 +14,36 @@ var rad = function (deg) {
 var quadrantPath = function (svg, id, innerRadius, outerRadius, fill, radius, startAngle, tx, ty) {
     var arc = d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius).startAngle(rad(startAngle)).endAngle(rad(startAngle + 90));
     var mpath = svg.append('path').attr('d', arc).attr('fill', fill).attr('transform', 'translate(' + tx * radius + ', ' + ty * radius + ')');
+    var radius = (outerRadius - innerRadius)/2 + innerRadius;
+    mpath.datum({radius: radius});
     var oldColor;
     mpath.on('mouseenter', function () {
-        oldColor = d3.select(this).style("fill");
-        d3.select(this).style("fill", "aliceblue");
+//        var item = d3.select(this);
+        console.log('On mouse enter');
+        //if (DragDropManager.droppable)
+        //{
+
+            //oldColor = null;
+
+        //}
     });
     mpath.on('mouseleave', function () {
+        //if (DragDropManager.droppable && oldColor)
+        //{
+
+//            console.log('On mouse leave');
+        //}
+    });
+    mpath.on('mouseover', function (d,i) {
+        oldColor = d3.select(this).style("fill");
+        d3.select(this).style("fill", "aliceblue");
+        DragDropManager.droppable = d3.select(this);
+        console.log('On mouse over: ' + DragDropManager.droppable);
+    });
+    mpath.on('mouseout', function (e) {
         d3.select(this).style("fill", oldColor);
+        DragDropManager.droppable = null;
+        //console.log('On mouse out');
     });
 }
 var quadrantArc = function (svg, id, innerRadius, outerRadius, colour, radius, startAngle, tx, ty) {
@@ -121,10 +144,10 @@ var screenSizeSupported = function () {
 }
 var CONFIG = {'quadrantRadius': 500, 'blipWidth': 25, 'blipFontSize': '10px', 'blipColours': {'adopt': '#44b500', 'trial': '#859900', 'assess': '#99df00', 'hold': '#bb5500'}, 'textColour': '#000', 'maxRadius': 400,
     'segmentData': [
-    {'title': 'Adopt', 'startRadius': 0, 'endRadius': 150, 'colour': '#BFC0BF'},
-    {'title': 'Trial', 'startRadius': 150, 'endRadius': 275, 'colour': '#CBCCCB'},
-    {'title': 'Assess', 'startRadius': 275, 'endRadius': 350, 'colour': '#D7D8D6'},
-    {'title': 'Hold', 'startRadius': 350, 'endRadius': 400, 'colour': '#E4E5E4'}
+    {'title': 'Yes', 'startRadius': 0, 'endRadius': 150, 'colour': '#BFC0BF'},
+    {'title': 'Maybe', 'startRadius': 150, 'endRadius': 275, 'colour': '#CBCCCB'},
+    {'title': 'No', 'startRadius': 275, 'endRadius': 350, 'colour': '#D7D8D6'}
+    //{'title': 'No', 'startRadius': 350, 'endRadius': 400, 'colour': '#E4E5E4'}
 ], 'quadrantData': {'tools': {'startAngle': 0, 'tx': 0, 'ty': 1, 'colour': '#83AD78'}, 'languages-and-frameworks': {'startAngle': 90, 'tx': 0, 'ty': 0, 'colour': '#8D2145'}, 'platforms': {'startAngle': 180, 'tx': 1, 'ty': 0, 'colour': '#E88744'}, 'techniques': {'startAngle': 270, 'tx': 1, 'ty': 1, 'colour': '#3DB5BE'}}}
 
 var drawQuadrant = function () {
@@ -133,7 +156,34 @@ var drawQuadrant = function () {
     var quadrantData = CONFIG.quadrantData[quadrantName];
     var scaleFactor = CONFIG.quadrantRadius / CONFIG.maxRadius;
     quadrant(svg, quadrantName, CONFIG.quadrantRadius, scaleFactor, CONFIG.segmentData, quadrantData.startAngle, quadrantData.tx, quadrantData.ty, CONFIG.textColour);
-    var mb= {"radarId":"74","urlLabel":"","radius":"70","quadrant":"languages-and-frameworks","lastModified":"2012-10","description":"nothing new. – Move Clojure to Adopt.","quadrantSortOrder":"4","ring":"Adopt","ringSortOrder":"1","id":"258","faded":"","movement":"c","name":"Clojure","editStatus":"Include w/o Write Up","type":"Blip","theta":"280","date":"2014-01","isNew":false};
+    createBlip('453', '300');
+}
+
+var createBlip = function(value, radius)
+{
+    var svg = d3.select('#radar svg');
+    var quadrantName = 'tools';
+    var quadrantData = CONFIG.quadrantData[quadrantName];
+    var scaleFactor = CONFIG.quadrantRadius / CONFIG.maxRadius;
+    var mb= {"radarId":value,"urlLabel":"","radius":radius,"quadrant":"languages-and-frameworks",
+            "lastModified":"2012-10","description":"nothing new. – Move Clojure to Adopt.","quadrantSortOrder":"1",
+            "ring":"Trial","ringSortOrder":"3","id":"719","faded":"","movement":"c","name":"Clojure",
+            "editStatus":"Include w/o Write Up","type":"Blip","theta":"45","date":"2014-01","isNew":false};
     drawBlip(mb, svg, quadrantData.colour, scaleFactor, CONFIG.quadrantRadius, quadrantData.tx, quadrantData.ty, CONFIG.blipWidth, CONFIG.blipFontSize);
 }
+
+
+// ---
+// Handle dragging from HTML to dropping on SVG
+// ---
+var DragDropManager = {
+    dragged: null,
+    droppable: null,
+    draggedMatchesTarget: function() {
+        if (!this.droppable) return false;
+        return true;
+    }
+}
+
+
 
