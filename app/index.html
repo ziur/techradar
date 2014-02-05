@@ -12,22 +12,22 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="techradarApp">
+  <body ng-app="techradarApp" style="padding: 20px 20px">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
 
-
     <!-- Add your site or application content here -->
-    <div class="container" style="width: 1170px">
+    <div class="container-fluid">
+        <div class="row-fluid">
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse">
@@ -35,6 +35,7 @@
                         <li class="active"><a href="#">Home</a></li>
                         <li><a href="#">Radars</a></li>
                         <li><a href="#">Radars A-Z</a></li>
+                        <li><a href="#vote">Vote</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ng-href="#">Login</a></li>
@@ -48,6 +49,7 @@
         <div class="footer">
             <p>Jalasoft - TechRadar 2014</p>
         </div>
+    </div>
     </div>
 
 
@@ -80,6 +82,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/angular-dragon-drop/dragon-drop.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -87,6 +90,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/TR.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/vote.js"></script>
         <!-- endbuild -->
 </body>
 </html>

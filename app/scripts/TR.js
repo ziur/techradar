@@ -13,7 +13,15 @@ var rad = function (deg) {
 }
 var quadrantPath = function (svg, id, innerRadius, outerRadius, fill, radius, startAngle, tx, ty) {
     var arc = d3.svg.arc().innerRadius(innerRadius).outerRadius(outerRadius).startAngle(rad(startAngle)).endAngle(rad(startAngle + 90));
-    svg.append('path').attr('d', arc).attr('fill', fill).attr('transform', 'translate(' + tx * radius + ', ' + ty * radius + ')');
+    var mpath = svg.append('path').attr('d', arc).attr('fill', fill).attr('transform', 'translate(' + tx * radius + ', ' + ty * radius + ')');
+    var oldColor;
+    mpath.on('mouseenter', function () {
+        oldColor = d3.select(this).style("fill");
+        d3.select(this).style("fill", "aliceblue");
+    });
+    mpath.on('mouseleave', function () {
+        d3.select(this).style("fill", oldColor);
+    });
 }
 var quadrantArc = function (svg, id, innerRadius, outerRadius, colour, radius, startAngle, tx, ty) {
     quadrantPath(svg, id, innerRadius, outerRadius, colour, radius, startAngle, tx, ty);
@@ -125,6 +133,7 @@ var drawQuadrant = function () {
     var quadrantData = CONFIG.quadrantData[quadrantName];
     var scaleFactor = CONFIG.quadrantRadius / CONFIG.maxRadius;
     quadrant(svg, quadrantName, CONFIG.quadrantRadius, scaleFactor, CONFIG.segmentData, quadrantData.startAngle, quadrantData.tx, quadrantData.ty, CONFIG.textColour);
-
+    var mb= {"radarId":"74","urlLabel":"","radius":"70","quadrant":"languages-and-frameworks","lastModified":"2012-10","description":"nothing new. – Move Clojure to Adopt.","quadrantSortOrder":"4","ring":"Adopt","ringSortOrder":"1","id":"258","faded":"","movement":"c","name":"Clojure","editStatus":"Include w/o Write Up","type":"Blip","theta":"280","date":"2014-01","isNew":false};
+    drawBlip(mb, svg, quadrantData.colour, scaleFactor, CONFIG.quadrantRadius, quadrantData.tx, quadrantData.ty, CONFIG.blipWidth, CONFIG.blipFontSize);
 }
 
