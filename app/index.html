@@ -18,40 +18,6 @@
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-
-
-      <style>
-          body {
-              height: 100%;
-              text-align: center;
-              padding: 1rem;
-          }
-          .col {
-              display: inline-block;
-              width: 200px;
-              vertical-align: top;
-          }
-          .draggables ul {
-              margin: 0; padding: 0;
-          }
-          .draggables li {
-              margin: 0 0 .3rem 0;
-              padding: .3rem;
-              list-style: none;
-              background-color: #fff;
-              background-color: rgba(255,255,255,.8);
-              font: .8rem/1 arial, helvetica, sans-serif;
-              border: 1px #7f7f7f solid;
-          }
-          li.ui-draggable {
-              cursor: move;
-          }
-          li.ui-state-disabled {
-              cursor: not-allowed;
-              opacity: .5;
-          }
-       </style>
-
   </head>
   <body ng-app="techradarApp" style="padding: 20px 20px">
     <!--[if lt IE 7]>
@@ -67,7 +33,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Radars</a></li>
+                        <li><a href="#radar-wip">Radars</a></li>
                         <li><a href="#">Radars A-Z</a></li>
                         <li><a href="#vote">Vote</a></li>
                     </ul>
@@ -140,10 +106,9 @@
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -151,6 +116,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

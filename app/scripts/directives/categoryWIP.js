@@ -1,6 +1,6 @@
 techRadarApp.directive('categoryWIP', function ($document) {
     return function(scope, element, attr) {
-        var startX = 0, startY = 0, x = 0, y = 0;
+        scope.title = '';
 
         element.css({
             position: 'relative',
@@ -8,11 +8,9 @@ techRadarApp.directive('categoryWIP', function ($document) {
             backgroundColor: 'lightgrey',
             cursor: 'pointer'
         });
+        scope.delete = function(category){
+            console.log(category);
+        }
 
-        element.on('mousedown', function(event) {
-            // Prevent default dragging of selected content
-            event.preventDefault();
-
-        });
     }
 });

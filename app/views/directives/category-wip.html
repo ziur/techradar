@@ -2,7 +2,7 @@
     <accordion ng-repeat="category in categories">
         <accordion-group heading="{{category.title}}">
             <p>{{category.description}}</p>
-            <a href="#" ng-click="delete()">Delete</a>
+            <a href="#" ng-click="delete(category)">Delete</a>
         </accordion-group>
     </accordion>
 </div>

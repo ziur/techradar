@@ -17,6 +17,10 @@ var techRadarApp = angular.module('techradarApp', [
                 templateUrl: 'views/vote.html',
                 controller: 'VoteCtrl'
             })
+            .when('/radar-wip', {
+                templateUrl: 'views/radar-wip.html',
+                controller: 'RadarsWIPCtrl'
+            })
             .otherwise({
                 redirectTo: '/'
             });
