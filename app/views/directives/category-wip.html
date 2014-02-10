@@ -1,0 +1,9 @@
+<div class="badger-left badger-success" data-badger="{{title}}">
+    <accordion ng-repeat="category in categories">
+        <accordion-group heading="{{category.title}}">
+            <p>{{category.description}}</p>
+            <a href="#" ng-click="delete()">Delete</a>
+        </accordion-group>
+    </accordion>
+</div>
+
