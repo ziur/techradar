@@ -16,7 +16,7 @@ var techRadarApp = angular.module('techradarApp', [
             })
             .when('/new-radar', {
                 templateUrl: 'views/newRadar.html',
-                controller: 'VoteCtrl'
+                controller: 'newRadar'
             })
             .when('/vote', {
                 templateUrl: 'views/vote.html',

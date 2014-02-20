@@ -13,7 +13,6 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/angular-wizard/dist/angular-wizard.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
@@ -41,38 +40,8 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ng-href="#">Login</a></li>
                         <li class="dropdown">
-                            <a href="http://www.jquery2dotnet.com" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
-                            <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
-                                <li>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                                    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox"> Remember me
-                                                    </label>
-                                                </div>
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-success btn-block">Sign in</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">
-                                    <input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">
-                                </li>
-                            </ul>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+
                         </li>
                         <li><img src="images/logo.jpg"></li>
                     </ul>
@@ -118,7 +87,7 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
-    <script src="bower_components/angular-wizard/dist/angular-wizard.min.js"></script>
+    <script src="bower_components/angular-wizard/dist/angular-wizard.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -127,6 +96,8 @@
         <script src="scripts/TR.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/vote.js"></script>
+        <script src="scripts/controllers/newRadar.js"></script>
+        <script src="scripts/services/loginService.js"></script>
         <!-- endbuild -->
 </body>
 </html>
