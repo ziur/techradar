@@ -41,6 +41,7 @@
                         <li><a ng-href="#">Login</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+                            <loginPopUp></loginPopUp>
 
                         </li>
                         <li><img src="images/logo.jpg"></li>
@@ -93,11 +94,13 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
+        <script src="scripts/settings.js"></script>
         <script src="scripts/TR.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/vote.js"></script>
         <script src="scripts/controllers/newRadar.js"></script>
         <script src="scripts/services/loginService.js"></script>
+        <script src="scripts/directives/loginPopUp.js"></script>
         <!-- endbuild -->
 </body>
 </html>

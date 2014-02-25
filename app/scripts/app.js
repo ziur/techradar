@@ -12,7 +12,7 @@ var techRadarApp = angular.module('techradarApp', [
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
-                controller: 'MainCtrl'
+                controller: 'newRadar'
             })
             .when('/new-radar', {
                 templateUrl: 'views/newRadar.html',
