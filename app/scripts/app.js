@@ -5,8 +5,7 @@ var techRadarApp = angular.module('techradarApp', [
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'ui.bootstrap',
-        'mgo-angular-wizard'
+        'ui.bootstrap'
     ])
     .config(function ($routeProvider) {
         $routeProvider

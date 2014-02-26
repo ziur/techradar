@@ -15,7 +15,8 @@
     "angular-bootstrap": "~0.10.0",
     "underscore": "~1.5.2",
     "jquery-ui": "~1.10.3",
-    "angular-wizard": "~0.2.2"
+    "angular-wizard": "~0.2.2",
+    "bootstrap-duallistbox": "https://github.com/istvan-ujjmeszaros/bootstrap-duallistbox.git"
   },
   "devDependencies": {
     "angular-mocks": "1.2.6",
