@@ -1,5 +1,5 @@
 'use strict';
 
-angular.module('techradarApp')
+angular.module('techRadarApp')
   .controller('RadarWIPController', function ($scope) {
   });

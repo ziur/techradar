@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('techradarApp')
+angular.module('techRadarApp')
   .controller('VoteCtrl', function ($scope) {
    /* $scope.awesomeThings = [
       'HTML5 Boilerplate',

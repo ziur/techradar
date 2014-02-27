@@ -1,6 +1,6 @@
 'use strict';
 
-var techRadarApp = angular.module('techradarApp', [
+var techRadarApp = angular.module('techRadarApp', [
         'ngCookies',
         'ngResource',
         'ngSanitize',

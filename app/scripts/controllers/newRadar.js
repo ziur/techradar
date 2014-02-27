@@ -1,8 +1,10 @@
 'use strict';
 
-angular.module('techradarApp')
-  .controller('newRadar', function ($scope) {
+angular.module('techRadarApp')
+  .controller('newRadar', ['SeasonService', function ($scope, SeasonService) {
         $scope.dt = new Date();
+        $scope. = new Date();
+
 
         $scope.open = function($event) {
             $event.preventDefault();
@@ -10,4 +12,4 @@ angular.module('techradarApp')
 
             $scope.opened = true;
         };
-  });
+  }]);

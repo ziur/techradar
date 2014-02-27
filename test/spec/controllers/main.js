@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('techradarApp'));
+  beforeEach(module('techRadarApp'));
   beforeEach(module('ui.bootstrap'));
 
   var MainCtrl,

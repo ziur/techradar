@@ -1,6 +1,6 @@
 'use strict';
 
-var techradarApp = angular.module('techradarApp', ['ngResource']);
+var techradarApp = angular.module('techRadarApp', ['ngResource']);
 
 techradarApp.factory('TechRadar', ['$resource',
   function($resource){
