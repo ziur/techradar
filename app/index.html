@@ -20,20 +20,42 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="techradarApp" style="padding: 20px 20px">
+  <body ng-app="techRadarApp" style="padding: 20px 20px" class="login-dialog waiting-for-angular">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+        <div id="login-holder" class="modal hide" ng:controller="LoginController">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">x</button>
+            <h3>Login to MyWebsite.com</h3>
+          </div>
+          <div class="modal-body">
+            <form method="post" action='' name="login_form">
+              <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
+              <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
+              <p><button type="submit" class="btn btn-primary">Sign in</button>
+                <a href="#">Forgot Password?</a>
+              </p>
+            </form>
+          </div>
+          <div class="modal-footer">
+            New To MyWebsite.com?
+            <a href="#" class="btn btn-primary">Register</a>
+          </div>
+        </div>
+      </div>
+
 
     <!-- Add your site or application content here -->
-    <div class="container-fluid">
+    <div id="content" class="container-fluid">
         <div class="row-fluid">
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#current">Current</a></li>
                         <li><a href="#new-radar">Radars</a></li>
                         <li><a href="#">Radars A-Z</a></li>
                         <li><a href="#vote">Vote</a></li>
@@ -79,6 +101,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -89,6 +112,7 @@
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
+    
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -98,8 +122,10 @@
         <script src="scripts/TR.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/vote.js"></script>
+        <script src="scripts/controllers/loginController.js"></script>
         <script src="scripts/controllers/newRadar.js"></script>
         <script src="scripts/services/loginService.js"></script>
+        <script src="scripts/services/SeasonService.js"></script>
         <script src="scripts/directives/loginPopUp.js"></script>
         <script src="scripts/directives/dualListBox.js"></script>
         <!-- endbuild -->

@@ -5,10 +5,15 @@ var techRadarApp = angular.module('techRadarApp', [
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'ui.bootstrap'
+        'ui.bootstrap',
+         'http-auth-interceptor'
     ])
     .config(function ($routeProvider) {
         $routeProvider
+            .when('/current', {
+                templateUrl: 'views/main.html',
+                controller: 'newRadar'
+            })
             .when('/', {
                 templateUrl: 'views/main.html',
                 controller: 'newRadar'

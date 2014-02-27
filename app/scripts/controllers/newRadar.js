@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('techRadarApp')
-  .controller('newRadar', ['SeasonService', function ($scope, SeasonService) {
+techRadarApp
+  .controller('newRadar', ['$scope', 'SeasonService', function ($scope, SeasonService) {
         $scope.dt = new Date();
-        $scope. = new Date();
+        $scope.a = new Date();
 
+        SeasonService.current().get(function(currentSeason) {
+        	console.log('dddddd');
+        	console.log(current);
+		});
 
         $scope.open = function($event) {
             $event.preventDefault();
