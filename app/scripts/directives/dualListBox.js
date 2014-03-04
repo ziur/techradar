@@ -3,6 +3,7 @@ techRadarApp.directive('dualListBox', function() {
         restrict: 'A',
         scope: {},
         link: function(scope , element){
+            console.log('dual list box!!!!!!');
             element.bootstrapDualListbox({
                 nonselectedlistlabel: 'Non-selected',
                 selectedlistlabel: 'Selected',

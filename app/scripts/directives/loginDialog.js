@@ -1,21 +1,22 @@
-techRadarApp.directive('loginDialog', function() {
-    return {
-      restrict: 'C',
-      link: function(scope, elem, attrs) {
-        //once Angular is started, remove class:
-        elem.removeClass('waiting-for-angular');
+
+
+/*
+
+      // templateUrl: 'views/directives/loginDialog.html',
+      link: function(scope, elem) {
         console.log('login handler!!!!');
-        
-        var login = elem.find('#login-holder');
+        //once Angular is started, remove class:
+        //elem.removeClass('waiting-for-angular');
         scope.$on('event:auth-loginRequired', function() {
         	console.log('on event:event:auth-loginRequired ');
-          login.modal('show');
+        	scope.open();
         });
+
         scope.$on('event:auth-loginConfirmed', function() {
         	console.log('on event:event:auth-loginConfirmed ');
-          login.modal('hide');
-        });
-      }
-    }
-  });
 
+        });
+    }
+}
+}]);
+*/

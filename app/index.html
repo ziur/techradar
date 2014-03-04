@@ -13,42 +13,49 @@
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/bootstrap-duallistbox.css" />
     <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/bootstrap-duallistbox.css" />
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="techRadarApp" style="padding: 20px 20px" class="login-dialog waiting-for-angular">
+  <body ng-app="techRadarApp" style="padding: 20px 20px" login-listener class="waiting-for-angular">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-        <div id="login-holder" class="modal hide" ng:controller="LoginController">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">x</button>
-            <h3>Login to MyWebsite.com</h3>
-          </div>
-          <div class="modal-body">
-            <form method="post" action='' name="login_form">
-              <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-              <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
-                <a href="#">Forgot Password?</a>
-              </p>
-            </form>
-          </div>
-          <div class="modal-footer">
-            New To MyWebsite.com?
-            <a href="#" class="btn btn-primary">Register</a>
-          </div>
-        </div>
-      </div>
 
+        <div ng-controller="LoginController">
+            <script type="text/ng-template" id="myModalContent.html">
+                <div class="modal-header">
+                    <h3></h3>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                    <div class="col-md-12">
+                        <form class="form" role="form">
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                <input type="input" ng-model="user.name" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                <input type="password" ng-model="user.password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success btn-block" ng-click="login();">Sign in</button>
+                    <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+                </div>
+            </script>
+        </div>
 
     <!-- Add your site or application content here -->
-    <div id="content" class="container-fluid">
+    <div id="content" class="container-fluid login-listener">
         <div class="row-fluid">
         <div class="navbar navbar-default" role="navigation">
             <div class="container-fluid">
@@ -101,7 +108,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
     <script src="bower_components/d3/d3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
@@ -111,9 +117,10 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
-    <script src="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
-    
+    <script src="bower_components/angular-wizard/dist/angular-wizard.js"></script>
+    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
     <!-- endbower -->
+    <script src="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -128,6 +135,7 @@
         <script src="scripts/services/SeasonService.js"></script>
         <script src="scripts/directives/loginPopUp.js"></script>
         <script src="scripts/directives/dualListBox.js"></script>
+        <script src="scripts/directives/loginDialog.js"></script>
         <!-- endbuild -->
 </body>
 </html>
