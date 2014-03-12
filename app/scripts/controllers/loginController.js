@@ -22,10 +22,12 @@ techRadarApp.controller('LoginController', ['$scope', '$http', '$cookies', '$mod
 
     $scope.$on('event:auth-loginRequired', function() {
         console.log('on event:event:auth-loginRequired ');
-        modalInstance = $modal.open({
-          templateUrl: 'myModalContent.html',
-          controller: ModalInstanceCtrl
-      });
+        if (typeof modalInstance === 'undefined'){
+            modalInstance = $modal.open({
+                templateUrl: 'myModalContent.html',
+                controller: ModalInstanceCtrl
+            });
+        }
     });
 
     $scope.$on('event:auth-loginConfirmed', function(event, data) {
