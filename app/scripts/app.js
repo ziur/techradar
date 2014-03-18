@@ -10,13 +10,13 @@ var techRadarApp = angular.module('techRadarApp', [
     ])
     .config(function ($routeProvider) {
         $routeProvider
-            .when('/current', {
-                templateUrl: 'views/main.html',
-                controller: 'newRadar'
-            })
             .when('/', {
                 templateUrl: 'views/main.html',
                 controller: 'newRadar'
+            })
+            .when('/current', {
+                templateUrl: 'views/main.html',
+                controller: 'currentSeason'
             })
             .when('/new-radar', {
                 templateUrl: 'views/newRadar.html',
@@ -24,7 +24,7 @@ var techRadarApp = angular.module('techRadarApp', [
             })
             .when('/vote', {
                 templateUrl: 'views/vote.html',
-                controller: 'VoteCtrl'
+                controller: 'VoteController'
             })
             .when('/radar-wip', {
                 templateUrl: 'views/radar-wip.html',

@@ -27,7 +27,7 @@
 
 
         <div ng-controller="LoginController">
-            <script type="text/ng-template" id="myModalContent.html">
+            <script type="text/ng-template" id="login.html">
                 <div class="modal-header">
                     <h3>Login</h3>
                 </div>
@@ -70,10 +70,6 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a ng-href="#">Login</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
-                            <login-pop-up></login-pop-up>
-                        </li>
                         <li><img src="images/logo.jpg"></li>
                     </ul>
                 </div><!--/.nav-collapse -->
@@ -124,19 +120,17 @@
     <script src="bower_components/bootstrap-duallistbox/bootstrap-duallistbox/jquery.bootstrap-duallistbox.js"></script>
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/settings.js"></script>
-        <script src="scripts/TR.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/vote.js"></script>
-        <script src="scripts/controllers/loginController.js"></script>
-        <script src="scripts/controllers/newRadar.js"></script>
-        <script src="scripts/services/loginService.js"></script>
-        <script src="scripts/services/SeasonService.js"></script>
-        <script src="scripts/directives/loginPopUp.js"></script>
-        <script src="scripts/directives/dualListBox.js"></script>
-        <script src="scripts/directives/loginDialog.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/settings.js"></script>
+    <script src="scripts/TR.js"></script>
+    <script src="scripts/controllers/Login.js"></script>
+    <script src="scripts/controllers/NewRadar.js"></script>
+    <script src="scripts/controllers/CurrentSeason.js"></script>
+    <script src="scripts/controllers/Vote.js"></script>
+    <script src="scripts/services/LoginService.js"></script>
+    <script src="scripts/services/SeasonService.js"></script>
+    <script src="scripts/directives/DualListBox.js"></script>
+    <!-- endbuild -->
 </body>
 </html>

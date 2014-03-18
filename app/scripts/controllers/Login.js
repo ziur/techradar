@@ -9,8 +9,6 @@ techRadarApp.controller('LoginController', ['$scope', '$http', '$cookies', '$mod
         $scope.login = function () {
             var payload = {'userName':$scope.user.name, 'password':$scope.user.password};
             loginService.login(payload).$promise.then(function(data) {
-                 console.log('loginservice:');
-                 console.log(data);
                  authService.loginConfirmed(data);
             });
         };
@@ -24,7 +22,7 @@ techRadarApp.controller('LoginController', ['$scope', '$http', '$cookies', '$mod
         console.log('on event:event:auth-loginRequired ');
         if (typeof modalInstance === 'undefined'){
             modalInstance = $modal.open({
-                templateUrl: 'myModalContent.html',
+                templateUrl: 'login.html',
                 controller: ModalInstanceCtrl
             });
         }
